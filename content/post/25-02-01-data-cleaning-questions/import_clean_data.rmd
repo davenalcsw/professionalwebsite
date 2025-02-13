@@ -1,0 +1,345 @@
+---
+title: "Importing and Cleaning Data from a Large Dataset"
+author: "Davena Mgbeokwere"
+date: "2025-02-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+ 
+#Load Libraries 
+
+```{r load_libraries}
+
+library (tidyverse) # for importing and cleaning data
+library (summarytools) #contains dfsummary() function which provides summary of stats for all variables selected
+
+```
+
+#Import and Combine Datasets
+
+```{r import_data}
+
+# show_col_types = FALSE to silence message about columns. default shows first few column names and guidance on how to retrieve column specification
+
+raw_demographics <- 
+  read_csv("C:/Users/School/OneDrive - Georgia State University/Documents/December 2025/Research/MA thesis/thesis moderation analysis/thesis moderation analysis/data/RAW_thesis_demographics.csv", show_col_types = FALSE)
+
+raw_covariates <- 
+  read_csv("C:/Users/School/OneDrive - Georgia State University/Documents/December 2025/Research/MA thesis/thesis moderation analysis/thesis moderation analysis/data/RAW_thesis_covariates.csv", show_col_types = FALSE)
+
+```
+
+
+```{r create_sample_dataset}
+
+sample_raw_demo <- raw_demographics %>% 
+  sample_frac (.25) %>% #randomly sample 25 of the entire dataset
+  mutate(
+    project = case_when( #case_when () used when creating single variable with multiple conditions
+      M2ID > 0 ~"M2",
+      MRID > 0 ~"Refresher"),
+    .keep = c("unused"),
+    .after = 1
+    ) %>% 
+  select (-SAMPLMAJ)
+  
+
+sample_raw_covariates <- 
+  sample_raw_demo %>% 
+  select(MIDUSID) %>% 
+  left_join(raw_covariates, by="MIDUSID") %>%
+  select (-SAMPLMAJ:-MRID)
+
+
+```
+
+##Dataset 1
+
+```{r rename_variables_demographic_dataset}
+
+# For some variables, there were 4 variables that needed to be combined into one variable. To create a new variable combining these four variables, I used case_when () which allows you to have multiple conditions. 
+# For variables where I only needed to combine two variables, I used if_else () to create a single variable.
+
+demo_data <- sample_raw_demo %>% 
+  mutate( # function to create a new variable
+    MIDUSID = as.character (MIDUSID),
+    sex = case_when(B1PRSEX > 0 ~ B1PRSEX, # M2P1 sex
+                    RA1PRSEX > 0 ~ RA1PRSEX, # MR 1 sex
+                    RAACRSEX > 0 ~ RAACRSEX, # Milwaukee refresher sex
+                    BACRSEX > 0 ~ BACRSEX), # Milwaukee 1 sex
+    race1 = case_when(B1PF7A > 0 ~ B1PF7A, # M2P1 first race choice
+                      BACF7A > 0 ~ BACF7A, # Milwaukee 1 first race choice
+                      RA1PF7A > 0 ~ RA1PF7A, # MR 1 first race choice
+                      RAACF7A > 0 ~ RAACF7A), # Milwaukee refresher first race choice
+    race2 = case_when(B1PF7B > 0 ~ B1PF7B, # M2P1 second race choice
+                      BACF7B > 0 ~ BACF7B, # Milwaukee 1 second race choice
+                      RA1PF7B > 0 ~ RA1PF7B, # MR 1 second race choice
+                      RAACF7B >0 ~ RAACF7B), # Milwaukee R second race choice
+    int_age = case_when(B1PAGE_M2 > 0 ~ B1PAGE_M2,# M2P1 interview age
+                        RA1PRAGE > 0 ~ RA1PRAGE, # MR 1 interview age
+                        RAACRAGE > 0 ~ RAACRAGE, # Milwaukee R interview age
+                        BACRAGE > 0 ~ BACRAGE), # Milwaukee 1 interview age
+    bio_age = ifelse(is.na(B4ZAGE), RA4ZAGE, B4ZAGE), # age at biomarker visit
+    biomarker = case_when(bio_age > 0 ~ 1, is.na(bio_age) ~ 0), # biomarker participant? 0 = No, 1 = yes
+    educ = case_when(B1PB1 > 0 ~ B1PB1, # M2P1 education
+                     BACB1 > 0 ~ BACB1, # Milwaukee 1 education
+                     RA1PB1 > 0 ~ RA1PB1, # MR 1 education
+                     RAACB1 >0 ~ RAACB1), # Milwaukee R education
+    stress = ifelse (is.na (B4QPS_PS), RA4QPS_PS,B4QPS_PS), #PSS score
+    logRMSSD1 = ifelse(is.na(B4VB1LRM),RA4VB1LRM, B4VB1LRM), # baseline 1 RMSSD
+    logRMSSD2 = ifelse(is.na(B4VB2LRM),RA4VB2LRM, B4VB2LRM), # baseline 2 RMSSD
+    ) %>% 
+  select (MIDUSID:logRMSSD2)
+
+```
+
+##Dataset 2
+
+```{r rename_variables_covariates_dataset}
+
+# For this dataset, I used to same functions to combine variables. 
+
+cov_data <- sample_raw_covariates %>%
+  mutate(
+    MIDUSID = as.character (MIDUSID),
+    sleepdur = if_else(is.na(B4SSQ_S3), RA4SSQ_S3, B4SSQ_S3),
+    sleepqual=if_else (is.na(B4SSQ_S1),RA4SSQ_S1, B4SSQ_S1),
+    BMI = if_else(is.na (B4PBMI), RA4PBMI, B4PBMI),
+    avgsystolic = if_else (is.na(B4P1GS), RA4P1GS, B4P1GS),
+    avgdiastolic = if_else (is.na(B4P1GD), RA4P1GD, B4P1GD), 
+    MASQgendisdep = if_else (is.na(B4QMA_D),RA4QMA_D, B4QMA_D),
+    MASQanxarousal = if_else(is.na(B4QMA_AA),RA4QMA_AA, B4QMA_AA),
+    MASQposaffect = if_else(is.na(B4QMA_PA),RA4QMA_PA, B4QMA_PA),
+    MASQgendisanx = if_else (is.na(B4QMA_A), RA4QMA_A, B4QMA_A),
+    MASQlossint = if_else (is.na(B4QMA_LI), RA4QMA_LI, B4QMA_LI),
+    CESDscore = if_else(is.na (B4QCESD), RA4QCESD, B4QCESD), 
+    spielangerexpin = if_else (is.na(B4QAE_AI),RA4QAE_AI, B4QAE_AI),
+    spielangerexpout = if_else (is.na (B4QAE_AO), RA4QAE_AO, B4QAE_AO), 
+    spielangerexpcon = if_else (is.na (B4QAE_AC), RA4QAE_AC, B4QAE_AC),
+    spieltraitanxinv = if_else (is.na (B4QTA_AX), RA4QTA_AX, B4QTA_AX),
+    soc_anxiety = if_else (is.na (B4QSA_SA), RA4QSA_SA, B4QSA_SA),
+    evertobacco = if_else (is.na (B4O7), RA4H37, B4O7),
+    currtobacco = if_else(is.na (B4H29), RA4H43A, B4H29),
+    eversmoke = if_else (is.na (B4H26), RA4H38, B4H26),
+    currsmoke = ifelse (is.na (B4H26A), RA4H38A, B4H26A),
+    drinkpastmonth = if_else (is.na (B4H33), RA4H49, B4H33),
+    daily5drinks = if_else (is.na (B4H37), RA4H53, B4H37),
+    weeklyMETminutes= if_else (is.na (B4HMETMW), RA4HMETMW,B4HMETMW),
+    heartdisease = if_else (is.na (B4H1A), RA4H1A, B4H1A),
+    highBP = if_else (is.na (B4H1B), RA4H1B, B4H1B),
+    heartmurmur = if_else (is.na (B4H1E), RA4H1E, B4H1E),
+    tiastroke = if_else (is.na (B4H1F), RA4H1F, B4H1F),
+    cholesterol = if_else (is.na (B4H1H), RA4H1H, B4H1H),
+    diabetes = if_else (is.na (B4H1I), RA4H1I, B4H1I),
+    alcoholism = if_else (is.na (B4H1U), RA4H1U, B4H1U),
+    depression = if_else (is.na (B4H1V), RA4H1V, B4H1V),
+    waisthip = if_else (is.na (B4PWHR), RA4PWHR, B4PWHR),
+    resprate = if_else (is.na (B4P1E), RA4P1E, B4P1E),
+    .keep = "unused",
+    .after = 1) %>% 
+# I wanted to create a single variable from 15 variables that met a single condition. First, I renamed then variables using rename_with (). I wanted to rename the medication variables to start with "med" followed by a number. To do this, I used paste0 () to create the name for the variable. seq_along (.) numbers the variables.
+  rename_with (., ~ paste0("med", seq_along(.)), starts_with('B4XPICD9M')) %>%
+  select (MIDUSID:resprate, starts_with("med"))
+
+
+```
+
+##Combine Datasets 
+
+```{r combine_datasets}
+
+merged_data <- 
+  left_join(demo_data, cov_data, by = "MIDUSID") 
+
+```
+
+# Clean Data
+
+```{r explore_combined_data}
+
+dfSummary (merged_data) #use to obtain summary data for each variable
+
+```
+
+After reviewing the summary data, the first thing I decided to address was re-coding the values for missing data to NA so the values will not be included in calculations. I wasn't sure of the best way to do this and probably made it more complicated than I needed to but several values were used to indicate missing values based on the range of the variable.
+
+```{r Change_Missing_to_NA}
+
+# There may have been a better way to do this but I needed to remove all missing values across all variables without removing valid values so I created to separate values groups and variable groups
+
+# create objects for values ---------------------------------------------------------------
+
+missing_values_high <- 
+  c(97, 98,99)
+
+missing_values_low <- 
+  c(7,8,9)
+
+# create objects for variables -----------------------------------------------------------
+
+missing_variables_high <- c( "educ", "resprate", "stress", 'logRMSSD1','logRMSSD2', "daily5drinks")
+
+missing_variables_low <- 
+  c("heartdisease", "highBP", "heartmurmur", "tiastroke", "cholesterol", 
+                "diabetes", "alcoholism", "depression", "sleepdur", "sleepqual",
+                "race1", "race2", "currsmoke", "currtobacco",  "eversmoke" , 
+                "evertobacco", "drinkpastmonth", 'logRMSSD1','logRMSSD2',
+    "soc_anxiety", "waisthip")
+
+# replace missing values with NA---------------------------------------------------------
+
+missing_converted <- 
+  merged_data %>% 
+  mutate(
+    across( # applies mutation to multiple variables/columns
+      c(missing_variables_high, MASQgendisdep : spieltraitanxinv), # can use this or all_of ()
+      ~replace (., . %in% missing_values_high, NA)), # replace in dataset-variables in object - with NA
+    across(
+      all_of(missing_variables_low), #can use this or c ()
+      ~replace(., . %in% missing_values_low, NA)) # replace in dataset-variables in object - with NA
+    )
+
+
+```
+
+
+```{r explore_combined_data}
+
+dfSummary (missing_converted)
+
+```
+
+After converting all missing values to NA, I needed to create new variables, change some numeric variables to factors, and re-code some factor variables
+Need to create smoking variable 
+need to create single drinking variable 
+Need to create single race variable
+need to create BP meds variable
+need to compute RMSSD variable 
+
+```{r Create_New_Variables}
+
+updated_merged <- missing_converted %>%
+  
+# create blood pressure variable 
+  mutate (bloodpres = avgsystolic/avgdiastolic) %>% 
+  
+# create tobacco user variable from multiple variables. 
+  
+# I started with the easiest logic formulas, which were coding the current user and non-user. 
+# Then, I spent some time figuring out how to code the quitters. After that, there were still  cases
+# that weren't categorized. After some trial-and-error, I figure out how to set up the code to categorize them correctly.
+  
+  mutate (tobacco_user = case_when(evertobacco == 2 & eversmoke == 2 ~ "nonuser", # NO coded as 2. 
+                                  currtobacco == 1 | currsmoke == 1 ~ "user",  # YES coded as 1.
+                                  eversmoke == 1 & currsmoke == 2 ~ "quit",
+                                  evertobacco == 1 & currtobacco == 2 ~ "quit",
+                                  is.na (evertobacco) & eversmoke== 2 & 
+                                    currtobacco == 2 ~ "nonuser",
+                                  evertobacco == 2 & is.na (currtobacco) & 
+                                    is.na(eversmoke) & is.na (currsmoke) ~"nonuser"), 
+          .after = 30) %>%
+  
+# create drinking variable
+  mutate (occ_5_drinks = if_else (drinkpastmonth == 3 | drinkpastmonth == 2, 0, daily5drinks),
+                                .after = 32) %>%
+# create new race variable 
+  mutate (proj_race = case_when (race1 == 1 & is.na (race2) ~ race1, race1 == 2 & is.na (race2)~
+                               race1, .default = NA), .after = 4)
+
+# create blood pressure medication variable ------------------------------------
+
+meds_function <- function (x) x == 401
+
+updated_merged_bp <- 
+  updated_merged %>% 
+# I looked up how to create a single blood pressure medication variable. The most efficient way to create a variable that applies the same condition to multiple variables that I found was to use apply (). Reads select all variables that start "med", 1 = apply over all select rows, for any that meet the condition x== 401
+   mutate(bp_meds = apply(select(., starts_with("med")), 1, function(x) any(meds_function(x))), 
+          bp_meds_2 = case_when(bp_meds == 1 ~ 1, .default = 0)) 
+  select (-med1:-med15)
+          
+#create average of two columns for HRV------------------------------------------
+  
+avghrv_updated_merged <- updated_merged_bp %>% 
+  rowwise() %>% #calculate average of two variables across columns. This took awhile with the full dataset but not with the sample dataset
+  mutate(avglogRMSSD = mean(c_across(c('logRMSSD1', 'logRMSSD2')),na.rm=TRUE), 
+         .after = 12)
+
+```
+
+Need to convert some variables to factors
+ 
+```{r Convert_Numeric_to_Factor}
+
+#factors to convert to variables 
+
+factorvariables <- c ("project", "alcoholism", "biomarker", "bp_meds", "cholesterol", "currsmoke", "currtobacco", "depression","diabetes","drinkpastmonth", "educ" , "eversmoke" , "evertobacco","heartdisease", "sleepqual", "sleepdur" ,"heartmurmur", "highBP" , "race1", "race2" , "proj_race" ,"sex", "tiastroke", "tobaccouser")
+
+factor_updated <- avghrv_updated_merged %>%
+                        mutate_at (factorvariables, as.factor)
+
+
+```
+
+
+```{r Recode_Factor_Variables}
+
+educlevels <- c (1:12)
+
+clean_full_data <- factor_updated %>%  
+
+mutate (full_race = case_when (is.na (race1) ~ NA,
+                               race1 == 1 & is.na (race2) ~ "W",
+                               race1 == 2 & is.na (race2)~ "B",
+                           .default="M"), .after = 4) %>% 
+mutate (rev_race = factor (dplyr::recode (proj_race, "1" = "1", "2" = "0"), 
+                            levels = c(0, 1), labels = c ("Black", "White")),
+        .after = 4) %>% 
+mutate (rev_sex = factor (dplyr::recode (sex, "1" = "1", "2" = "0"), 
+                            levels = c(0, 1), labels = c ("Female", "Male")),
+        .after = 2) %>% 
+mutate (educ2 = factor (case_when(educ %in% c("1", "2", "3") ~ "0",
+                                  educ %in% c("4", "5") ~ "1",
+                                  educ %in% c("6", "7") ~ "2",
+                                  educ == "8" ~ '3',
+                                  educ == "9" ~ "4",
+                                  educ == "10" ~ "5",
+                                  educ %in% c("11", "12") ~ "6"), 
+                        levels = c (0:6), 
+                        labels = c('< GED/HS diploma', 'GED/HS diploma', 
+                                   'some college', '2 yr degree', 
+                                   '4 yr degree' , 'some grad school', 
+                                   'graduate degree'), ordered = T),
+        .after = 9) %>% 
+mutate (stress2 = case_when (stress <=13 ~ "low", stress > 13 & stress <= 26 ~ "moderate", 
+                             stress > 27 ~ "high"),
+        .after = 10) %>% 
+mutate (rev_sleepdur = factor(dplyr::recode(sleepdur,
+                                   '0' = '3', '1' = '2','2'= '1','3' = '0'),  
+                        levels = c(0, 1, 2, 3),
+                        labels = 
+                      c("< 5 HOURS", "5-6 HOURS", "6-7 HOURS", "> 7 HOURS"),
+                      ordered = T),
+        rev_sleepqual = factor(dplyr::recode(sleepqual,
+                                             '0' ='3', '1' = '2','2' = '1', '3' = '0'),  
+                               levels = c(0, 1, 2, 3), 
+                               labels = c("< Very Bad", "Fairly Bad", "Fairly Good", 
+                                          "Very Good"), ordered = T), .after = 15) %>% 
+mutate(across(c(depression, alcoholism, tiastroke, heartmurmur, heartdisease),
+              ~ dplyr::recode(., "1" = "1", "2" = "0","3" = "0"
+)))
+  
+
+```
+
+
+```{r Create_Project_Dataset }
+
+proj_data <- clean_full_data %>% 
+                filter (biomarker==1, !is.na (proj_race)) %>% 
+                dplyr::select (-biomarker)
+
+              
+```
