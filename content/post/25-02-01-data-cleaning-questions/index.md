@@ -1,6 +1,6 @@
 ---
 title: >-
-  Tidying Data: Sharing Data Cleaning Challenges Using R and Answering Questions
+  Data Cleaning with R: Navigating Challenges and Answering Key Questions
 date: 2025-02-01
 image:
   focal_point: 'top'
@@ -10,16 +10,15 @@ editor_options:
     wrap: 100
 ---
 
-In this post, I discuss questions that came up for me while tidying data using 
-R and the solutions I used. Also, I provide sample code.
+
 
 <!--more-->
 
-As a PhD student, I am comfortable with R and chose to use R instead of SPSS to 
-analyze data for my thesis. For my thesis, I used data collected for the Midlife
-in the United States (MIDUS) study— a longitudinal examination of health, well-being,
-and social responsibility among middle-aged adults in the United States. My research question involved exploring stress, 
-race, and cardiac vagal tone (CVT) /heart rate variability (HRV). 
+As a PhD student, I have used R for a handful of projects and become comfortable with it.
+I chose to use R instead of SPSS to analyze data for my thesis. 
+For my thesis, I used data collected for the Midlife in the United States (MIDUS) study— a longitudinal examination of health, well-being,
+and social responsibility among middle-aged adults in the United States. 
+My research question involved exploring stress, race, and cardiac vagal tone (CVT) /heart rate variability (HRV). 
 MIDUS is a large project that contains multiple waves and subprojects.
 
 Because I was working with data collected at two different time points for four different samples, 

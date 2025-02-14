@@ -1,6 +1,6 @@
 ---
 title: >-
-  The The Power of Tidy, Clean Data in Driving Success – A Leadership Perspective
+  The The Power of Clean, Tidy Data in Driving Success – A Leadership Perspective
 date: 2025-01-06
 image:
   focal_point: 'top'

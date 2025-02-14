@@ -9,8 +9,8 @@ sections:
   - block: slider
     content:
       slides:
-      - title: Therapist | Researcher | Consultant
-        # content: Hi! I'm Davena, a licensed clinical social worker (LCSW) and PhD student
+      - title:
+        content: 
         align: left
         background:
           image:

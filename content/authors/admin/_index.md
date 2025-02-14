@@ -15,24 +15,24 @@ role: Founder-Owner-CEO & Chief Clinical Officer/
 
 # Organizations/Affiliations
 organizations:
-  - name: Áṣẹ Center for Stress and Trauma/
+  - name: Áṣẹ Center for Stress, Trauma, and Well-Being/
           Georgia State University
     url: ''
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include mind-body-brain link, social determinants of health, race as a social construct, and stress and trauma.
+# bio: >
+#   My research interests include mind-body-brain link, social determinants of health,
+#   race as a social construct, and stress and trauma.
 
-interests:
-  - Digital Health/Health Technology/Wearables
-  - Health Policy
-  - Data Science
-  - Psychophysiology
-  - Precision Medicine
+# interests:
+#   - Tech ~ Digital Health, Health Technology, & Wearables
+#   - Evaluation ~ Family Health & Well-Being & Health-in-All-Policies
+#   - Research ~ Stress Biology, Brain-Body-Social Context, & Social Determinants of Health, & Stress-Related Disorders
 
 
 education:
   courses:
-    - course: Pursuing PhD in Psychology (cognitive and affective neuroscience)
+    - course: Pursuing PhD in Psychology (cognitive and affective neuroscience concentration)
       institution: Georgia State University
     - course: Masters in Social Work and Masters in Public Administration
       institution: University of North Carolina at Chapel Hill
@@ -125,7 +125,7 @@ skills:
 #   #   icon_pack: fab
 #   #   link: https://medium.com/@davenalcsw
 #   - icon: linkedin
-#     icon_pack: fab 
+#     icon_pack: fab
 #     link: www.linkedin.com/in/davenamgbeokwere
 #   # - icon: envelope
 #   #   icon_pack: fab
@@ -135,13 +135,13 @@ skills:
 # # - icon: cv
 # #   icon_pack: ai
 # #   link: files/cv.pdf
-# 
+#
 # # Enter email to display Gravatar (if Gravatar enabled in Config)
 # email: ''
-# 
+#
 # # Highlight the author in author lists? (true/false)
 # highlight_name: false
-# 
+#
 # # Organizational groups that you belong to (for People widget)
 # #   Set this to `[]` or comment out if you are not using People widget.
 # user_groups:
@@ -149,5 +149,9 @@ skills:
 
 ---
 
-I am the Founder-Owner-CEO of Ase Center for Stress and Trauma, trauma-focused therapist, and doctoral student. My research interests include stress-related systems (with a focus on the parasympathetic nervous system), stress- and trauma-related disorders, stress vulnerability and resilience, and social determinants of health (i.e., class and race). I am interested in bridging the research, practice, programming, policy, and technology gap.
+Davena Mgbeokwere is the Founder-Owner-CEO and Chief Clinical Officer of Áṣẹ Center for Stress, Trauma and Well-Being,
+a trauma-focused therapist, and doctoral student. Her research interests include social determinants of health (e.g., class, race), 
+stress biology (with a focus on the central and autonomic nervous system), and
+stress- and trauma-related disorders. She is passionate about health equity, family health and well-being, 
+and bridging the research, practice, policy, and technology gap.
 
