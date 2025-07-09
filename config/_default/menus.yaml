@@ -10,21 +10,24 @@ main:
   - name: About
     url: author/davena-mgbeokwere/
     weight: 10
+  - name: Research
+    hasChildren: true
+    weight: 20
+  - parent: Research
+    name: Presentations
+    url: research/presentations
+  - parent: Research
+    name: Publications
+    url: research/publications
+  - name: Policy
+    url: policy
+    weight: 30
+  - name: Outreach
+    url: outreach
+    weight: 40
   - name: Blog
     url: post
-    weight: 20
-  # - name: Evaluation
-  #   url: evaluation
-  #   weight: 30
-  # - name: Research
-  #   url: publication
-  #   weight: 40
-  # - name: Wellness
-  #   url: event
-  #   weight: 50
-  # - name: Travel
-  #   url: travel
-  #   weight: 60
+    weight: 50
   # - name: Contact
   #   url: contact
   #   weight: 70
