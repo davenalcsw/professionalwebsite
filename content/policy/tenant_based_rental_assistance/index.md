@@ -2,6 +2,7 @@
 title: 'Tenant-Based Rental Assistance: A Cost-Effective Strategy to Reduce Family Homelessness'
 
 draft: false 
+lastmod: false #set this to update if necessary
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
@@ -49,7 +50,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'mgbeokwere_tbra_health_policy_brief.pdf'
+url_pdf: 'https://github.com/davenalcsw/professionalwebsite/blob/main/content/policy/tenant_based_rental_assistance/mgbeokwere_tbra_health_policy_brief.pdf'
 # url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 # url_dataset: 'https://github.com/HugoBlox/hugo-blox-builder'
 # url_poster: ''

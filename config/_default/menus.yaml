@@ -22,9 +22,9 @@ main:
   - name: Policy
     url: policy
     weight: 30
-  - name: Projects
-    url: projects
-    weight: 40
+  # - name: Projects
+  #   url: projects
+  #   weight: 40
   - name: Outreach
     url: outreach
     weight: 50

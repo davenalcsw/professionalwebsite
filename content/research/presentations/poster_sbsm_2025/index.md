@@ -2,7 +2,7 @@
 title: >-
  Perceived Stress and Anxiety Symptoms: Testing the Buffering Effects of Perceived Family Support and Resilience in a Racially Diverse Sample of Undergraduate Students
 draft: false
-
+lastmod: false #set this to update if necessary
 event: 2025 Society for Biopsychosocial Science and Medicine (SBSM) Conference
 event_url: https://thesbsm.org/
 

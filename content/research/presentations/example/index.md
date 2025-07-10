@@ -2,6 +2,7 @@
 title:  >-
   Example Event
 draft: true
+lastmod: false #set this to update if necessary
 
 event: Wowchemy Conference
 event_url: https://example.org

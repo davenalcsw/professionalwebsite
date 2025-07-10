@@ -2,7 +2,7 @@
 title: >-
  Vagal Tone and Cognitive Control: Exploring Race as a Moderator
 draft: false
-
+lastmod: false #set this to update if necessary
 event: 2023 Anxiety and Depression Association of America Conference
 event_url: https://adaa.org/calendar/adaa-2023-annual-conference
 
