@@ -40,7 +40,7 @@ summary: >-
   preventing and reducing family homelessness. North Carolina should establish a state-level program 
   to support North Carolina families and eliminate family homelessness.
 
-tags: []
+tags: [affordable housing, family homelessness, health]
 
 # Display this page in the Featured widget?
 featured: false
