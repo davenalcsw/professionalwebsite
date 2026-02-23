@@ -10,33 +10,34 @@ last_name: Mgbeokwere
 superuser: true
 
 # Role/position
-role: Founder-Owner-CEO & Chief Clinical Officer/
-      PhD Student
+role: PhD Candidate + Founder/Owner + Psychotherapist
 
 # Organizations/Affiliations
-organizations:
-  - name: Áṣẹ Center for Stress, Trauma, and Well-Being/
-          Georgia State University
-    url: ''
+# organizations:
+#   - name: Áṣẹ Center for Stress, Trauma, and Well-Being/
+#           Georgia State University
+#     url: ''
 
 # Short bio (displayed in user profile at end of posts)
-# bio: >
-#   My research interests include mind-body-brain link, social determinants of health,
-#   race as a social construct, and stress and trauma.
-
-# interests:
-#   - Tech ~ Digital Health, Health Technology, & Wearables
-#   - Evaluation ~ Family Health & Well-Being & Health-in-All-Policies
-#   - Research ~ Stress Biology, Brain-Body-Social Context, & Social Determinants of Health, & Stress-Related Disorders
-
+bio: >
+  Scientist + Psychotherapist | Translating health-related data into insights
+  that (hopefully) solve problems and improve decision-making re: stress/trauma, health equity and behavioral health.
+  
+interests:
+  - Research ~ Stress/Trauma, Social Determinants of Health(SDOH), Nervous System, Biomarkers, Behavioral and Mental Health
+  - Applied ~ Digital Health, Wearables, Trauma-Informed Care, Health-in-All-Policies, Healthcare, Biotech, Research Consulting, Clinical Research 
+  
+# 
+#   - Tech ~ Digital Health, Health Technology, Wearables
+#   - Evaluation ~ Youth development, Family Health & Well-Being, Trauma-Informed Care, Health-in-All-Policies
 
 education:
   courses:
-    - course: Pursuing PhD in Psychology (cognitive and affective neuroscience concentration)
+    - course: Pursuing PhD in Psychology (neuroscience concentration)
       institution: Georgia State University
-    - course: Masters in Social Work and Masters in Public Administration
+    - course: Master's in Social Work and Master's in Public Administration
       institution: University of North Carolina at Chapel Hill
-    - course: BA in Human Biology
+    - course: Bachelor of Arts in Human Biology
       institution: Stanford University
 
 skills:
@@ -44,20 +45,20 @@ skills:
     color: 'purple'
     color_border: 'silver'
     items:
-    - name: Data Analysis
+    - name: Research Design and Methodology
       description: ''
       percent: 100
       icon: magnifying-glass-chart
       icon_pack: fas
-    - name: Evaluation
+    - name: Statistical Analyses
       description: ''
       percent: 100
-      icon: user-gear
+      icon: calculator
       icon_pack: fas
-    - name: Research
+    - name: Data Visualization
       description: ''
       percent: 100
-      icon: heartbeat
+      icon: bar-chart
       icon_pack: fas
   - name: ''
     color: 'purple'
@@ -68,41 +69,60 @@ skills:
         percent: 100
         icon: users
         icon_pack: fas
-      - name: Problem-Solving
+      - name: Communication
+        description: ''
+        percent: 100
+        icon: comments
+        icon_pack: fas
+      - name: Problem Solving
         description: ''
         percent: 100
         icon: puzzle-piece
         icon_pack: fas
-      - name: Critical Thinking
+  - name: 'Domain Expertise'
+    color: 'purple'
+    color_border: 'silver'
+    items:
+      - name: Behavioral and Mental Health
         description: ''
         percent: 100
-        icon: brain
+        icon: 
         icon_pack: fas
-  # - name: ''
-  #   color: 'purple'
-  #   color_border: 'silver'
-  #   items:
-  #     - name: Data Analysis
-  #       description: ''
-  #       percent: 100
-  #       icon: magnifying-glass-chart
-  #       icon_pack: fas
-  #     - name: Evaluation
-  #       description: ''
-  #       percent: 100
-  #       icon: user-gear
-  #       icon_pack: fas
-  #     - name: Research
-  #       description: ''
-  #       percent: 100
-  #       icon: heartbeat
-  #       icon_pack: fas
-
+      - name: Stress
+        description: ''
+        percent: 100
+        icon: 
+        icon_pack: fas
+      - name: Trauma
+        description: ''
+        percent: 100
+        icon: 
+        icon_pack: fas
+  - name: 'Tools'
+    color: 'purple'
+    color_border: 'silver'
+    items:
+      - name: R/RStudio
+        description: ''
+        percent: 100
+        icon: 
+        icon_pack: fas
+      - name: Evaluation
+        description: ''
+        percent: 100
+        icon: 
+        icon_pack: fas
+      - name: Consultation
+        description: ''
+        percent: 100
+        icon: 
+        icon_pack: fas
+        
 # # Social/Academic Networking
 # # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 # #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 # #   form "mailto:your-email@example.com" or "#contact" for contact widget.
-# social:
+social:
 #   - icon: mastodon
 #     icon_pack: fab
 #     link: https://blacktwitter.io/@davenalcsw
@@ -115,21 +135,21 @@ skills:
 #   - icon: tiktok
 #     icon_pack: fab
 #     link: https://twitter.com/davenalcsw
-#   # - icon: google-scholar
-#   #   icon_pack: fab
-#   #   link: https://scholar.google.com/citations?user=4n88Y7YAAAAJ&hl=en&authuser=2&oi=ao
-#   - icon: github
-#     icon_pack: fab
-#     link: https://github.com/davenalcsw
+  - icon: google-scholar
+    icon_pack: ai
+    link: https://scholar.google.com/citations?user=4n88Y7YAAAAJ&hl=en&authuser=2&oi=ao
+  - icon: github
+    icon_pack: fab
+    link: https://github.com/davenalcsw
 #   # - icon: medium
 #   #   icon_pack: fab
 #   #   link: https://medium.com/@davenalcsw
-#   - icon: linkedin
-#     icon_pack: fab
-#     link: www.linkedin.com/in/davenamgbeokwere
-#   # - icon: envelope
-#   #   icon_pack: fab
-#   #   link: mailto:davena@davenalcsw.com
+  - icon: linkedin
+    icon_pack: fab
+    link: https://www.linkedin.com/in/davenamgbeokwere/
+  # - icon: envelope
+  #   icon_pack: fas
+  #   link: #contact
 # # Link to a PDF of your resume/CV from the About widget.
 # # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # # - icon: cv
@@ -148,10 +168,35 @@ skills:
 #   - Behavioral Health Provider & Applied Researcher
 
 ---
+## About
 
-Davena Mgbeokwere is the Founder-Owner-CEO and Chief Clinical Officer of Áṣẹ Center for Stress, Trauma and Well-Being,
-a trauma-focused therapist, and doctoral student. Her research interests include social determinants of health (e.g., class, race), 
-stress biology (with a focus on the central and autonomic nervous system), and
-stress- and trauma-related disorders. She is passionate about health equity, family health and well-being, 
-and bridging the research, practice, policy, and technology gap.
+I’m a licensed clinical social worker (LCSW) and aspiring behavioral neuroscientist. 
+I am driven by a simple vision: to do work that solves problems, improves quality of life, and creates equitable systems that reduce disparities in health and well-being outcomes. 
 
+As a PhD candidate, I spend my time on end-to-end quantitative research projects 
+(i.e., conception to presentation). Alongside my psychology and neuroscience training, I’ve developed skills in 
+**research design and methodology, descriptive and inferential statistics, regression models, data visualization, and science communication. Working primarily with R and large health-related datasets**, 
+I explore complex research questions using advanced statistical analyses 
+(e.g., moderation, mediation, structural equation modeling); contextual, psychosocial, and behavioral measures; 
+and biological data. I’m particularly interested in how data-driven methods can improve our understanding of social determinants of health,
+biomarkers, and behavioral health; and the potential to transform the way we promote health and well-being, especially
+for marginalized and underserved populations.
+
+My research and scientific pursuits are driven by two core goals: 
+1. Building a more rigorous, equity-driven, empirical foundation for understanding behavior and mental health outcomes 
+2. Generating insights that can be applied to the development of products, social policies, and services that 
+can improve health and well-being
+
+I'm also a social worker with over 10 years of experience. Currently, I provide mental health treatment to adults
+navigating stress- and trauma-related disorders. Before starting my doctoral training, I worked with children,
+adults, and families from a variety of backgrounds. My experience has also included:
+* Leading internal assessment and evaluation projects to measure program impact and improve business services
+* Using qualitative methods, including interviews and focus groups, and analysis to understand participant experience
+* Synthesizing literature and making recommendations to key stakeholders and senior leadership
+
+Combining my experiences, I thrive at the intersection of research, data, and real-world impact — translating 
+complex findings into insights that improve decision-making. I'm most energized when analytical rigor meets social purpose.
+
+Outside of work, I enjoy strength training, watching/listening to something for educational or entertainment purposes (e.g., anime, podcasts, audiobooks), and traveling. 
+
+Want to work together? Connect with me on <a href="https://www.linkedin.com/in/davenamgbeokwere">LinkedIn</a>.
