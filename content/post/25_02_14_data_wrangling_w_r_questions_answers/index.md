@@ -13,7 +13,7 @@ featured: false #will be featured in featured widget, useful for sticky items or
 categories: [data analysis]
 lastmod: # set this to update if necessary
 publishDate: # for setting date in future
-draft: #to keep page unpublished
+draft: true #to keep page unpublished
 private: #hide page in search results
 
 show_date: true
