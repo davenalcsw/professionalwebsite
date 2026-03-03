@@ -1,40 +1,59 @@
 ---
 title: >-
-  Data Cleaning with R: Navigating Challenges and Answering Key Questions
-date: 2025-02-01
+  Data Wrangling with R: Navigating Challenges and Sharing Solutions
+subtitle: 
+summary: 
+date: "2025-02-01T00:00:00Z"
+authors:
+author_notes:
+output: 
+
+tags: [data cleaning, data analysis]
+featured: false #will be featured in featured widget, useful for sticky items or announcements
+categories: [data analysis]
+lastmod: # set this to update if necessary
+publishDate: # for setting date in future
+draft: #to keep page unpublished
+private: #hide page in search results
+
+show_date: true
+reading_time: true  # Show estimated reading time?
+share: false  # Show social sharing links?
+profile: false  # Show author profile?
+comments: true  # Show comments?
+
+# Cover image ------ also doesnt work with pages
+# To use, place an image named `featured.jpg/png` in your page's folder.
+# Otherwise, specify the `filename` option to load an image from your `assets/media/` folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+# Set `preview_only` to `true` to just use the image for thumbnails.
 image:
-  focal_point: 'top'
-  shape: rounded
-editor_options: 
-  markdown: 
-    wrap: 100
+  placement: 1
+  caption: ""
+  focal_point: "Top"
+#   preview_only: 
+  alt_text: a photo of a a map of the world with a few cities labeled 
+#   # filename: services.jpg  # Uncomment to load an image from `assets/media/` instead. 
+    
 ---
 
-
+As a PhD student, I work with large health-related datasets, which often requires preparing the data before it can be analyzed. 
 
 <!--more-->
 
-As a PhD student, I have used R for a handful of projects and become comfortable with it.
-I chose to use R instead of SPSS to analyze data for my thesis. 
-For my thesis, I used data collected for the Midlife in the United States (MIDUS) study— a longitudinal examination of health, well-being,
-and social responsibility among middle-aged adults in the United States. 
-My research question involved exploring stress, race, and cardiac vagal tone (CVT) /heart rate variability (HRV). 
-MIDUS is a large project that contains multiple waves and subprojects.
+Currently, my favorite tool to use for data cleaning and analyzing is R, which I used to clean the data for my thesis. 
 
-Because I was working with data collected at two different time points for four different samples, 
-the data I downloaded contained over 9000 observations with almost 400 variables. 
-All observations weren’t relevant to my question and many variables were duplicates. 
-Most of the challenges I had involved figuring out the most efficient way to combine 
-information into a single variable. Between several Google searches (stackoverflow was helpful) and ChatGPT, 
-I was able to find a method that worked. Hopefully, if these are questions you have, it will take you less time. 
-You can find the full example on my Github.
+For my thesis, I used data collected for the Midlife in the United States (MIDUS) study— a longitudinal examination of health, well-being, and social responsibility among middle-aged adults in the United States. My research question involved exploring stress, race, and cardiac vagal tone (CVT) /heart rate variability (HRV). MIDUS is a large project that contains multiple waves and subprojects.
+
+Because I was working with data collected at two different time points for four different samples, the data I downloaded contained over 9000 observations with almost 400 variables. All observations weren’t relevant to my question and many variables were duplicates. Most of the challenges I had involved figuring out the most efficient way to combine information into a single variable. Between several Google searches (stackoverflow was helpful) and ChatGPT, I was able to find a method that worked. Hopefully, if these are questions you have, it will take you less time. You can find the full example on my Github.
 
 **How do you create a single variable from more than two variables? For example, if you have four
 variables that contain information about sex, how do you combine them into one variable?**
 
 I knew that I could use ifelse() or if_else() for two variables but was unsure of how to do this with more than two variables. I learned about case_when () from a data visualization course and decided to try it. For the sample code below, I wanted the value that was present to be used for the new variable. Since the information was from different waves/participants, if there was a value present for one variable, it would not be present for any of the other variables. With the case_when() function, I set up the condition that if there was a value greater than 0, that value would be used for the new variable. 
 
-```         
+```r         
 # Use when there are only two variables
 stress = ifelse (is.na (B4QPS_PS), RA4QPS_PS,B4QPS_PS)
 
@@ -171,8 +190,8 @@ for any that meet the condition x== 401
 
 **Conclusion**
 
-Although I was comfortable with R prior to using it for my thesis, using R to conduct secondary data analysis 
-was a great learning experience. With R, I know there are multiple ways to do the same thing, 
-and I wanted to find the most concise way to code even if I knew of a method that worked. 
-I know that there are probably more efficient ways to achieve what I was trying to do and welcome any feedback. 
+Navigating complex data cleaning tasks can take some time as you try to figure out what you would like your desired end goal
+to be and how to achieve it. With R, there are multiple ways to produce a desired final result, with some solutions being
+more concise than others. I know that there are probably more efficient ways to achieve what I was trying to do and welcome 
+any feedback. 
 
