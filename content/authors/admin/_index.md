@@ -20,12 +20,12 @@ role: PhD Candidate + Founder/Owner + Psychotherapist
 
 # Short bio (displayed in user profile at end of posts)
 bio: >
-  Scientist + Psychotherapist | Translating health-related data into insights
-  that (hopefully) solve problems and improve decision-making re: stress/trauma, health equity and behavioral health.
+  Researcher + Psychotherapist | Translating data into insights that support decision-making, solves problems, and improves outcomes
   
 interests:
-  - Research ~ Stress/Trauma, Social Determinants of Health(SDOH), Nervous System, Biomarkers, Behavioral and Mental Health
-  - Applied ~ Digital Health, Wearables, Trauma-Informed Care, Health-in-All-Policies, Healthcare, Biotech, Research Consulting, Clinical Research 
+  - Research ~ Stress/Trauma, Social Determinants of Health(SDoH), Nervous System, Behavioral Health, Equity
+  - Applied ~ Digital Health/Wearable Technology, Healthcare, Biotech, Research Consulting, Clinical Research
+  - Advocacy ~ Trauma-Informed Care, Health-in-All-Policies, Housing and Homelessness, Child and family well-being, Health Equity
   
 # 
 #   - Tech ~ Digital Health, Health Technology, Wearables
@@ -33,7 +33,7 @@ interests:
 
 education:
   courses:
-    - course: Pursuing PhD in Psychology (neuroscience concentration)
+    - course: Pursuing PhD in Psychology (cognitive and affective neuroscience concentration)
       institution: Georgia State University
     - course: Master's in Social Work and Master's in Public Administration
       institution: University of North Carolina at Chapel Hill
@@ -170,33 +170,11 @@ social:
 ---
 ## About
 
-I’m a licensed clinical social worker (LCSW) and aspiring behavioral neuroscientist. 
-I am driven by a simple vision: to do work that solves problems, improves quality of life, and creates equitable systems that reduce disparities in health and well-being outcomes. 
+I’m a licensed clinical social worker (LCSW) and PhD candidate broadly interested in psychosocial stress and trauma, social determinants of health, the nervous system, and physical-mental health connection. 
 
 As a PhD candidate, I spend my time on end-to-end quantitative research projects 
 (i.e., conception to presentation). Alongside my psychology and neuroscience training, I’ve developed skills in 
-**research design and methodology, descriptive and inferential statistics, regression models, data visualization, and science communication. Working primarily with R and large health-related datasets**, 
+**research design and methodology, descriptive and inferential statistics, regression models, data visualization, and science communication. Working primarily with R and large health-related cohort datasets**, 
 I explore complex research questions using advanced statistical analyses 
 (e.g., moderation, mediation, structural equation modeling); contextual, psychosocial, and behavioral measures; 
-and biological data. I’m particularly interested in how data-driven methods can improve our understanding of social determinants of health,
-biomarkers, and behavioral health; and the potential to transform the way we promote health and well-being, especially
-for marginalized and underserved populations.
-
-My research and scientific pursuits are driven by two core goals: 
-1. Building a more rigorous, equity-driven, empirical foundation for understanding behavior and mental health outcomes 
-2. Generating insights that can be applied to the development of products, social policies, and services that 
-can improve health and well-being
-
-I'm also a social worker with over 10 years of experience. Currently, I provide mental health treatment to adults
-navigating stress- and trauma-related disorders. Before starting my doctoral training, I worked with children,
-adults, and families from a variety of backgrounds. My experience has also included:
-* Leading internal assessment and evaluation projects to measure program impact and improve business services
-* Using qualitative methods, including interviews and focus groups, and analysis to understand participant experience
-* Synthesizing literature and making recommendations to key stakeholders and senior leadership
-
-Combining my experiences, I thrive at the intersection of research, data, and real-world impact — translating 
-complex findings into insights that improve decision-making. I'm most energized when analytical rigor meets social purpose.
-
-Outside of work, I enjoy strength training, watching/listening to something for educational or entertainment purposes (e.g., anime, podcasts, audiobooks), and traveling. 
-
-Want to work together? Connect with me on <a href="https://www.linkedin.com/in/davenamgbeokwere">LinkedIn</a>.
+and biological data. I’m particularly interested in how data-driven methods can expand our understanding of how social determinants influence the nervous system and health; and the potential to transform the way we promote health and well-being, especially for marginalized and underserved populations.
