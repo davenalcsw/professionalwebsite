@@ -26,7 +26,7 @@ tags: []
 featured: false
 
 image:
-  caption: 'Poster presented at the 2025 Society for Biopsychosocial Science and Medicine (SBSM) conference'
+  caption: 
   focal_point: Right
   alt_text: >-
     Image of a research poster presented at the 2025 Society for Biopsychosocial Medicine (SBSM) Conference. Contains large 
